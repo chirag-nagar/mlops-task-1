@@ -1,0 +1,19 @@
+for production env
+sudo cp -rvf  * /root/mlopstask1/prod
+if sudo docker ps -a | grep prod_env
+then
+sudo docker container rm -f prod_env
+sudo docker run -itd --name prod_env -v /root/mlopstask1/prod:/usr/local/apache2/htdocs httpd
+else
+sudo docker run -itd --name prod_env -v /root/mlopstask1/prod:/usr/local/apache2/htdocs httpd
+fi
+
+for developer testing env
+sudo cp -rvf  * /root/mlopstask1/dev
+if sudo docker ps -a | grep dev_env
+then
+sudo docker container rm -f dev_env
+sudo docker run -itd --name dev_env -v /root/mlopstask1/dev:/usr/local/apache2/htdocs httpd
+else
+sudo docker run -itd --name dev_env -v /root/mlopstask1/dev:/usr/local/apache2/htdocs httpd
+fi
