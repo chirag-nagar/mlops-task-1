@@ -1,0 +1,5 @@
+First job when some developer push to dev branch of git then Jenkins will fetch from dev branch and deploy on dev-docker environment(testing env) created by docker container.
+
+Second job also doing the same thing but with production env. Manually the QA team will check (test) for the website running fine in dev-docker environment then
+
+Third job Jenkins will merge the dev branch to master branch and trigger second job.
